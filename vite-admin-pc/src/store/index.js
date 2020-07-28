@@ -1,15 +1,35 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex)
+const subModel = createStore({
+    namespaced: true,
+    state: {
+        target: 'xxx'
+    },
+    
+    mutations: {
+        updateTarget(state, newTarget){
+            state.target = newTarget
+        }
+    }
+})
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+export default createStore({
+    
+    state: {
+        
+        id: 'xxxx',
+        prefix: 'mini',
+        name: 'wolf'
+    },
+
+    getters: {
+        fullName(state){ return `${state.prefix}-${state.name}` }
+    },
+
+    mutations: {
+         updateName(state, newName){
+            state.name = newName
+        }
+    },
+    moduels:{ subModel }
 })

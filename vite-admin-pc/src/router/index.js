@@ -25,7 +25,5 @@ const router = createRouter({
   ],
 });
 
-var demo = router
-debugger
 
 export default router;
